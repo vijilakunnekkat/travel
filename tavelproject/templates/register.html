@@ -1,0 +1,46 @@
+ {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+    <style>
+        body{
+        color:rgb(0,153,51);
+        font-size:25px;
+        text-align:center;
+        font-family:verdana;
+        background-image: url({% static 'images/computer.jpg' %});
+        margin-top:120px;
+        }
+        input[type="text"]
+        {
+        background-color:rgb(0,204,102);
+        font-size:25px;
+        color:white;
+        }
+         input[type="submit"]
+        {
+        background-color:rgb(0,204,102);
+        font-size:25px;
+        color:white;
+        }
+
+    </style>
+</head>
+<body>
+<form action="register" method="post">
+    {% csrf_token %}
+    Username:  <input type="text" name="username" placeholder="Enter Your Username"><br><br>
+    First name: <input type="text" name="first_name" placeholder="Enter Your Firstname"><br><br>
+    Second name:<input type="text" name="last_name" placeholder="Enter Your Lastname"><br><br>
+    E-mail ID:  <input type="text" name="email" placeholder="Enter Your email ID"><br><br>
+    Password:<input type="text" name="password" placeholder="Enter Your Password"><br><br>
+    Confirm password:<input type="text" name="cpassword" placeholder="Confirm password"><br><br>
+    <input type="submit"  value="Submit">
+</form>
+{% for msg in messages %}
+{{msg}}
+{% endfor %}
+</body>
+</html>
